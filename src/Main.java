@@ -3,7 +3,7 @@ public class Main {
     public static void main(String[] args) {
 
         Card c1 = new Card ("", "Hearts", "", 1);
-        Card c2 = new Card ("", "Hearts", "", 13);
+        Card c2 = new Card ("", "Heart", "", 13);
 
         Shoe shoe  = new Shoe(1, 2);
 
@@ -13,6 +13,6 @@ public class Main {
 
         }
 
-        //System.out.println(c1.suitValue());
+        System.out.println(c1.compareSuit(c2));
     }
 }

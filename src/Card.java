@@ -23,7 +23,7 @@ public class Card {
         return 0;
     }
 
-    public boolean CompareSuit(Card card){
+    public boolean compareSuit(Card card){
         return suit.equals(card.suit);
     }
 
