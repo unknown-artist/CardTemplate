@@ -11,6 +11,7 @@ public class Shoe {
     public ArrayList<Card> shoeCards;
 
     public Shoe(int deckCount, int jokerCount){
+        shoeCards = new ArrayList<Card>();
         this.deckCount = deckCount;
 
         for( int i = 0; i < deckCount; i++ ){
@@ -59,10 +60,4 @@ public class Shoe {
     public void removeCard(Card card){
         shoeCards.remove(card);
     }
-
-
-
-
-
-
 }
