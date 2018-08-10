@@ -6,7 +6,7 @@ public class Shoe {
     private final String[][] SUITS = {{"Clubs", "Black"}, {"Spades", "Black"}, {"Diamonds", "Red"}, {"Hearts", "Red"}};
     private final String[] RANKS = {"Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"};
     private int deckCount;
-    private ArrayList<Card> deck;
+    public ArrayList<Card> deck;
 
     public Shoe(int deckCount){
         this.deckCount = deckCount;
@@ -45,6 +45,15 @@ public class Shoe {
 
         return randomCard;
     }
+
+    public void addCard(Card card){
+        deck.add(card);
+    }
+
+    public void removeCard(Card card){
+        deck.remove(card);
+    }
+
 
 
 
