@@ -5,33 +5,38 @@ public class Shoe {
 
     private final String[][] SUITS = {{"Clubs", "Black"}, {"Spades", "Black"}, {"Diamonds", "Red"}, {"Hearts", "Red"}};
     private final String[] RANKS = {"Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"};
+    private final int[] VALUE = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
     private int deckCount;
-    public ArrayList<Card> deck;
+    public ArrayList<Card> shoeCards;
 
-    public Shoe(int deckCount){
+    public Shoe(int deckCount, int jokerCount){
         this.deckCount = deckCount;
 
         for( int i = 0; i < deckCount; i++ ){
-            deck.addAll(generateDeck());
+            shoeCards.addAll(generateDeck());
+        }
+        
+        for( int i = 0; i < jokerCount; i++){
+            shoeCards.add( new Card("","","Joker", 0));
         }
     }
 
     public  ArrayList<Card > generateDeck(){
-        ArrayList<Card> deck = new ArrayList<Card>();
+        ArrayList<Card> shoeCards = new ArrayList<Card>();
         for( int i = 0; i < SUITS.length; i++){
             for( int j = 0; j < RANKS.length;j++){
-                deck.add(new Card(SUITS[i][1], SUITS[i][0], RANKS[j]));
+                shoeCards.add(new Card(SUITS[i][1], SUITS[i][0], RANKS[j], VALUE[j]));
             }
         }
-        return deck;
+        return shoeCards;
     }
 
     public  Card randomCard(){
         Random rand = new Random();
 
-        int randomIndex = rand.nextInt(deck.size());
-        Card randomCard = deck.get(randomIndex);
-        deck.remove(randomIndex);
+        int randomIndex = rand.nextInt(shoeCards.size());
+        Card randomCard = shoeCards.get(randomIndex);
+        shoeCards.remove(randomIndex);
 
         return randomCard;
     }
@@ -47,11 +52,11 @@ public class Shoe {
     }
 
     public void addCard(Card card){
-        deck.add(card);
+        shoeCards.add(card);
     }
 
     public void removeCard(Card card){
-        deck.remove(card);
+        shoeCards.remove(card);
     }
 
 
