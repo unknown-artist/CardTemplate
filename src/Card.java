@@ -3,12 +3,16 @@ public class Card {
     public String rank;
     public String color;
     public int value;
+    public String suitUnicode;
+    public String rankString;
 
-    public Card( String color, String suit, String rank, int value){
+    public Card( String color, String suit, String rank, int value, String suitUnicode, String rankString){
         this.suit = suit;
         this.rank = rank;
         this.color = color;
         this.value = value;
+        this.suitUnicode = suitUnicode;
+        this.rankString = rankString;
     }
 
     public int compareValue(Card card){
@@ -36,6 +40,11 @@ public class Card {
 
         }
         return -1;
+    }
+    
+    @Override
+    public String toString(){
+        return rankString + suitUnicode;
     }
 
 }
